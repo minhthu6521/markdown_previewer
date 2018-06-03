@@ -8,9 +8,10 @@ export default class Result extends Component {
 	constructor() {
 		super();
 		this.state = {
-			value: "test",
+			value: "# Marked in browser\n\nRendered by **marked**",
 		};
 	}
+
 	updateValue(e) {
     this.setState({
         value: e.target.value
