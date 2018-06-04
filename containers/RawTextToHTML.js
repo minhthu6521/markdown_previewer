@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 
 const InputComponent =  ({updateValue, setValue}) =>  {return (<textarea rows="22" type="text" value={setValue} className="form-control" onChange={updateValue} />)}
+const SwitchButton = ({clickFunction}) => {return (<button type="button" data-type="HTMLToMarkdown" className="btn btn-default switch-button" onClick={clickFunction}>Convert from HTML to markdown</button>)}
 
 export default class Result extends Component {
 	constructor() {
@@ -12,7 +13,7 @@ export default class Result extends Component {
 		};
 	}
 
-	updateValue(e) {
+	updateValue = (e) => {
     this.setState({
         value: e.target.value
     })
@@ -24,12 +25,16 @@ export default class Result extends Component {
 
 	render() {
 		return ( <div className="row">
+			<div className="col-md-12"><h1>Markdown to HTML</h1></div>
       <div className="col-md-6">
-        <InputComponent updateValue={this.updateValue.bind(this)} setValue={this.state.value} />
+        <InputComponent updateValue={this.updateValue} setValue={this.state.value} />
       </div>
       <div className="col-md-6">
         <span dangerouslySetInnerHTML={this.rawMarkup(this.state.value)} />
       </div>
+			<div className="col-md-12">
+				<SwitchButton clickFunction={this.props.handler}/>
+			</div>
     </div> )
 	}
 }

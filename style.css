@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.switch-button {
+  margin-top: 20px;
+  display: block;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
